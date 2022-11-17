@@ -44,3 +44,6 @@ input{
   margin-top: 50px;
 
 }
+.selected{
+  background-color: #131722 !important;
+}

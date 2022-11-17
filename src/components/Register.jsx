@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Joi from 'joi'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Login from './Login';
 
 
 
 export default function Register() {
   let navigate = useNavigate()
+  const [passwordType,serPasswordType]=useState('password')
+
   const [isLoading,setIsLoading] =useState(false)
   const [validateError,setValidateError] = useState([])
   const [error,setError] = useState('')
@@ -59,7 +61,11 @@ export default function Register() {
     })
     return scheme.validate(user,{abortEarly:false})
   }
-   
+  function changePasswordType(){
+    let passwordFiled = passwordType;
+        passwordFiled = passwordFiled ===`password`?`text` : `password`;
+         serPasswordType(passwordFiled)
+  }
   return (
     <>
       <div className='w-75 m-auto'>
@@ -84,10 +90,16 @@ export default function Register() {
           { validateError.map((error)=> error.message.includes('email') ? <div className='text-danger'> *{error.message}</div>:"")}
 
           <label className='mt-3' htmlFor="password">password :</label>
-          <input onChange={getUserData} className='form-control' type="password" id='password' name='password'/>
+          <div className='position-relative'>
+            <input onChange={getUserData} className='form-control' type={`${passwordType}`} id='password' name='password'/>
+            <i onClick={()=>changePasswordType()} class="fa-sharp fa-solid fa-eye text-info position-absolute top-50 end-0 translate-middle-y pe-3 cursor"></i>
+          </div>
           { validateError.map((error)=> error.message.includes('password') ? <div className=' text-danger'> *Password Invalid</div>:"")}
 
           {error ? <div className="alert alert-danger m-2"> { error }</div>:''}  
+
+          <div  className='text-muted mb-3 mt-3 '>already have an account ? <Link className='text-info' to={'/login'}>login</Link></div>
+
           <button type='submit' className='btn btn-outline-info mt-1'>
             {isLoading ?<i className='fas fa-spinner fa-spin'></i>: `Register`}
           </button>
