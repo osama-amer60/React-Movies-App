@@ -4,14 +4,14 @@ import Notfount from './Notfount';
 import Home from './Home';
 import Movies from './Movies';
 import People from './People';
-import Tv from './Tv';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import React from 'react'
 import Login from './Login';
 import Register from './Register';
 import jwtDecode from "jwt-decode";
-
+import TvShow from "./TvShow";
+import MoreDetails from "./MoreDetails";
 
 
 export default function App() {
@@ -41,24 +41,30 @@ export default function App() {
     navigate('/login')
   }
 
-  function ProtectedRoute(props){
+  function ProtectedRoute({children}){
     if(localStorage.getItem('userToken') === null){
       return  <Navigate to='/login'/>
     }else{
-      return props.children
+      return children
     }
   }
   return (
     <>
     <Navbar userData={userData} logOut={logOut}/>
-    <div className="container-fluid">
+    <div className="container">
           <Routes>
               <Route  path='/'  element={<ProtectedRoute><Home/></ProtectedRoute>}/>
               <Route  path='home'  element={<ProtectedRoute><Home/></ProtectedRoute>} />
               <Route  path='movies'  element={<ProtectedRoute><Movies/></ProtectedRoute>}/>
+              <Route  path='tvShow'  element={<ProtectedRoute><TvShow/></ProtectedRoute>}/>
               <Route  path='people'  element={<ProtectedRoute><People/></ProtectedRoute>}/>
-              <Route  path='tv'  element={<ProtectedRoute><Tv/></ProtectedRoute>}/>
-              <Route  path='login'  element={<Login getUserData={getUserData}/>}/>
+              <Route  path='moreDetails'  element={<ProtectedRoute><MoreDetails/></ProtectedRoute>}>
+                  <Route  path=':type'  element={<ProtectedRoute><MoreDetails/></ProtectedRoute>}>
+                      <Route  path=':id'  element={<ProtectedRoute><MoreDetails/></ProtectedRoute>}/>
+                  </Route>
+              </Route>
+
+              <Route  path='login'  element={<Login getUserData={getUserData}/>}/>              
               <Route  path='register'  element={<Register/>}/>
               <Route  path='*'  element={<Notfount/>}/>
           </Routes>

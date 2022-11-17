@@ -3,15 +3,44 @@
 :root{
   --bg-main:#131722;
   --light-bg:#24baef;
-  --main-color:#fff
+  --main-color:#fff;
+  --border-color:#a8a8a83d;
+  --second-font-color:#949cb0;
 }
-
+a, a:hover{
+  color: #FFF !important;
+  text-decoration: none !important;
+}
+li{
+  list-style: none !important;
+}
 body{
-  font-family: 'Montserrat Alternates', sans-serif ;
+  font-family: 'Alkalami', serif !important;
+  font-family: 'Montserrat Alternates', sans-serif !important;
   background-color: var(--bg-main) !important;
   color: var(--main-color) !important;
+  padding-bottom: 10vh;
+  position: relative !important;
 }
 input{
   background-color: transparent !important;
   color: #FFF !important;
+}
+.brdr{
+  background-color:var(--border-color) ;
+  height: 1px;
+  margin: 30px 0;
+}
+.cursor{
+  cursor: pointer;
+}
+.footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2vh;
+  text-align: center;
+  margin-top: 50px;
+
 }

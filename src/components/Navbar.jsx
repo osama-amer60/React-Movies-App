@@ -7,7 +7,7 @@ export default function Navbar(props) {
 
     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
     <div className="container-fluid">
-      <Link className="navbar-brand" to="/">Navbar</Link>
+      <Link className="navbar-brand" to="/"><h3>Noxe</h3></Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -21,11 +21,12 @@ export default function Navbar(props) {
               <Link className="nav-link" to="movies">Movies</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="people">People</Link>
+              <Link className="nav-link" to="tvShow">Tv Show</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="tv">Tv</Link>
+              <Link className="nav-link" to="people">People</Link>
             </li>
+
          </ul>
           </> : ''}
 
