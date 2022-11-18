@@ -1,28 +1,15 @@
 import axios from 'axios';
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React, { useContext } from 'react'
 import avatar from '../avatar.png'
 import { Link } from 'react-router-dom';
+import { infoContext } from './Store';
+
+
 
 
 export default function Home() {
-  const [trendingMovies,setTrendingMovies] = useState([])
-  const [trendingTv,setTrendingTv] = useState([])
-  const [trendingPeople,setTrendingPeople] = useState([])
-
-
-  async function getTrending(mediaType,callback){
-    let {data} = await axios(`https://api.themoviedb.org/3/trending/${mediaType}/week?api_key=97a86bf1cbe807844b74bc8adc5461aa`) 
-    callback(data.results.slice(0,10))
-  }
-
-  useEffect(()=>{
-    getTrending(`movie`,setTrendingMovies)
-    getTrending(`tv`,setTrendingTv)
-    getTrending(`person`,setTrendingPeople)
-
-  },[])
-
+  
+    const {trendingMovies,trendingTv,trendingPeople} =   useContext(infoContext)
 
   return (
     <>

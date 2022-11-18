@@ -9,7 +9,6 @@ export default function Movies() {
   let pageNam = Array(13).fill(13).map((pageNum , i)=> i+1)
   const [trendingMovies,setTrendingMovies] = useState([])
   async function getTrending(pageNum){
-
     let {data} = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=97a86bf1cbe807844b74bc8adc5461aa&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageNum}`) 
     setTrendingMovies(data.results)
 
