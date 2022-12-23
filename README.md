@@ -15,6 +15,6 @@ The Movie app help user be informed about tranding movies, Tv shows and actors.
 * 📌Strong validation for register and login forms, 
 * 📌Show more details about the topic by click on it.
 * 📌pagination to see more about the field.
-* 📌User must be loged in to seethe  features.
+* 📌User must be logged in to see the features.
    
 see more about movie app on <a href="https://www.linkedin.com/posts/osama-amerr_project-react-reacthooks-activity-6999102417535447040-NcF1?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noreferrer">LinkedIn </a>
