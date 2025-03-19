@@ -12,7 +12,7 @@ export default function Navbar(props) {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {props.userData?<>
+          {true?<>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item active">
               <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
