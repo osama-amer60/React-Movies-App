@@ -33,25 +33,26 @@ export default function Login(props) {
 
   async  function  submitLoginForm(e){
       e.preventDefault()
-      setIsLoading(true)
-
-      let validateResult =  validateLoginForm()
-      if(validateResult.error){
-        setIsLoading(false)
-        setValidateError(validateResult.error.details)
-        console.log(validateResult.error.details)
-      }else{
-          let {data} = await  axios.post(`https://route-egypt-api.herokuapp.com/signin`,user)
-          if(data.message =="success"){
-            setIsLoading(false)
-            localStorage.setItem('userToken', data.token)
-            props.getUserData()
-            navigate('/')
-          }else{
-            setError(data.message)
-            setIsLoading(false)
-          }
-      }
+      navigate('/')
+      
+      // setIsLoading(true)
+      // let validateResult =  validateLoginForm()
+      // if(validateResult.error){
+      //   setIsLoading(false)
+      //   setValidateError(validateResult.error.details)
+      //   console.log(validateResult.error.details)
+      // }else{
+      //     let {data} = await  axios.post(`https://route-egypt-api.herokuapp.com/signin`,user)
+      //     if(data.message =="success"){
+      //       setIsLoading(false)
+      //       localStorage.setItem('userToken', data.token)
+      //       props.getUserData()
+      //       navigate('/')
+      //     }else{
+      //       setError(data.message)
+      //       setIsLoading(false)
+      //     }
+      // }
   }
 
   function validateLoginForm(){

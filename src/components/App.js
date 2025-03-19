@@ -45,11 +45,12 @@ export default function App() {
   }
 
   function ProtectedRoute({children}){
-    if(localStorage.getItem('userToken') === null){
-      return  <Navigate to='/login'/>
-    }else{
-      return children
-    }
+    return children
+    // if(localStorage.getItem('userToken') === null){
+    //   return  <Navigate to='/login'/>
+    // }else{
+    //   return children
+    // }
   }
   return (
     <>

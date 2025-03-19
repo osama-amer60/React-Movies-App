@@ -31,24 +31,25 @@ export default function Register() {
   //submit form
   async  function  submitRegisterForm(e){
       e.preventDefault()
-      setIsLoading(true)
-
-      //call validation function
-      let validateResult =  validateRegisterForm()
-      //if the validation function return error
-      if(validateResult.error){
-        setIsLoading(false)
-        setValidateError(validateResult.error.details)
-      }else{
-          let {data} = await  axios.post(`https://route-egypt-api.herokuapp.com/signup`,user)
-          if(data.message =="success"){
-            setIsLoading(false)
-            navigate('/Login')
-          }else{
-            setError(data.message)
-            setIsLoading(false)
-          }
-      }
+      navigate('/Login')
+      
+      // setIsLoading(true)
+      // //call validation function
+      // let validateResult =  validateRegisterForm()
+      // //if the validation function return error
+      // if(validateResult.error){
+      //   setIsLoading(false)
+      //   setValidateError(validateResult.error.details)
+      // }else{
+      //     let {data} = await  axios.post(`https://route-egypt-api.herokuapp.com/signup`,user)
+      //     if(data.message =="success"){
+      //       setIsLoading(false)
+      //       navigate('/Login')
+      //     }else{
+      //       setError(data.message)
+      //       setIsLoading(false)
+      //     }
+      // }
   }
 
   function validateRegisterForm(){
